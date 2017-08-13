@@ -68,10 +68,10 @@ class App extends Component {
     mc.get('pinch').set({ enable: true })
 
     
-     mc.on("swipedown", ev => this.incrementMoons())
-      .on("swipeup", ev => this.decrementMoons())
-      .on("swipeleft", ev => this.incrementMountains())
-      .on("swiperight", ev => this.decrementMountains())
+     mc.on("swipedown", ev => this.decrementMoons())
+      .on("swipeup", ev => this.incrementMoons())
+      .on("swipeleft", ev => this.decrementMountains())
+      .on("swiperight", ev => this.incrementMountains())
       .on("pinchin", ev => { this.incrementMoons(); this.incrementMountains(); this.decrementTreeWidth() } )
       .on("pinchout", ev => { this.decrementMoons(); this.decrementMountains(); this.incrementTreeWidth() })
   }
