@@ -117,11 +117,11 @@ class App extends Component {
   }
 
   incrementMoons () {
-    this.setState({moonCount: Math.min(5, this.state.moonCount + 1)})
+    this.setState({moonCount: Math.min(6, this.state.moonCount + 1)})
   }
 
   decrementMoons () {
-    this.setState({moonCount: Math.max(1, this.state.moonCount - 1)})
+    this.setState({moonCount: Math.max(0, this.state.moonCount - 1)})
   }
 
   incrementMountains () {
@@ -198,7 +198,7 @@ class App extends Component {
   terrain(width, height, displace, roughness) {
       var points = [],
           // Gives us a power of 2 based on our width
-          power = 256;
+          power = 128;
 
       // Set the initial left point
       points[0] = height / 2 + (Math.random() * displace * 2) - displace;
@@ -274,10 +274,10 @@ class App extends Component {
       while (!added && count < 1000) {
         count++;
 
-        const radius = actualHeight < actualWidth ? this.between(actualHeight/12, actualHeight/5) : this.between(actualWidth/12, actualWidth/5);
+        const radius = actualHeight < actualWidth ? this.between(actualHeight/(12*(i + 1)), actualHeight/5) : this.between(actualWidth/(12*(i + 1)), actualWidth/5);
         
         const circ = {
-          x: this.between(actualWidth * 0.10 + radius, actualWidth*0.90 - radius) ,
+          x: this.between(actualWidth * 0.04 + radius, actualWidth*0.96 - radius) ,
           y: this.between(actualHeight * 0.01 + radius, actualHeight*0.75 - radius) ,
           r: radius
         }
